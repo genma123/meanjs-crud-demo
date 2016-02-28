@@ -1,0 +1,32 @@
+<section ng-controller="ProfileController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="profile.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == profile.user._id">
+    <a class="btn btn-primary" ui-sref="profile.edit({profileId: profile._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Name<br/>
+    </em>
+  </small>
+  <p class="lead" ng-bind="profile.lastname + ', ' + profile.firstname"></p>
+  <small>
+    <em class="text-muted">
+      Contracting Agency<br/>
+    </em>
+  </small>
+    <p class="lead">{{profile.contractingagency}}</p>
+
+    <form name="profileForm" ng-submit="update(profileForm.$valid)" novalidate>
+      <input name="lastname" type="text" ng-show="false" ng-model="profile.lastname" id="lastname">
+      <input name="firstname" type="text" ng-show="false" ng-model="profile.firstname" id="firstname">
+      <input name="contractingagency" type="text" ng-show="false" ng-model="profile.contractingagency" id="contractingagency">
+	</form>
+	
+</section>
