@@ -51,14 +51,15 @@ exports.update = function (req, res) {
   profile.lastname = req.body.lastname;
   profile.firstname = req.body.firstname;
   profile.contractingagency = req.body.contractingagency;
-  console.log("name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency);
+  profile.checkedin = req.body.checkedin;
+  console.log("name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency + ", checkedin: " + profile.checkedin);
   profile.save(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-		console.log("(2) name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency);
+		console.log("(2) name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency + ", checkedin: " + profile.checkedin);
        res.json(profile);
     }
   });

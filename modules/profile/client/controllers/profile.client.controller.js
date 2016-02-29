@@ -15,11 +15,12 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
         return false;
       }
 
-      // Create new Article object
+      // Create new Profile object
       var profile = new Profile({
         firstname: this.firstname,
         lastname: this.lastname,
-		contractingagency: this.contractingagency
+		contractingagency: this.contractingagency,
+		checkedin: this.checkedin
       });
 
       // Redirect after save
@@ -30,6 +31,7 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
         $scope.firstname = '';
         $scope.lastname = '';
 		$scope.contractingagency = '';
+		$scope.checkedin = false;
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -52,7 +54,7 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
       }
     };
 
-    // Update existing Article
+    // Update existing Profile
     $scope.update = function (isValid) {
       $scope.error = null;
 
@@ -71,13 +73,34 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
       });
     };
 
+    // Check In existing Profile
+    $scope.checkIn = function (isValid) {
+      $scope.error = null;
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'profileForm');
+
+        return false;
+      }
+
+      var profile = $scope.profile;
+	// TODO - REFACTOR
+	profile.checkedin = !profile.checkedin;
+	
+      profile.$update(function () {
+        $location.path('profile/' + profile._id);
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };
+
     // Find a list of Profiles
     $scope.find = function () {
 		console.log("in find");
       $scope.profiles = Profile.query();
     };
 
-    // Find existing Article
+    // Find existing Profile
     $scope.findOne = function () {
  		console.log("in find one, profileId: " + $stateParams.profileId);
      $scope.profile = Profile.get({

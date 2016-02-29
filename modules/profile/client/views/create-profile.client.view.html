@@ -3,7 +3,7 @@
     <h1>New Profile</h1>
   </div>
   <div class="col-md-12">
-    <form name="profileForm" class="form-horizontal" ng-submit="create(profileForm.$valid)" novalidate>
+    <form name="profileForm" class="form-horizontal" ng-submit="checkIn(profileForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
           <label for="lastname">Last Name</label>
@@ -21,6 +21,7 @@
           <div ng-messages="profileForm.contractingagency.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Profile Contracting Agency is required.</p>
           </div>
+		  <input name="checkedin" type="boolean" value="false" ng-show="false" ng-model="profile.checkedin" id="contractingagency"/>
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-default">
