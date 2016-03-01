@@ -20,7 +20,8 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
         firstname: this.firstname,
         lastname: this.lastname,
 		contractingagency: this.contractingagency,
-		checkedin: this.checkedin
+		checkedin: this.checkedin,
+		mobilenumber: this.mobilenumber
       });
 
       // Redirect after save
@@ -32,6 +33,7 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
         $scope.lastname = '';
 		$scope.contractingagency = '';
 		$scope.checkedin = false;
+		$scope.mobilenumber = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

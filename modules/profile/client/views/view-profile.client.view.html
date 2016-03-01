@@ -22,6 +22,12 @@
     </em>
   </small>
     <p class="lead">{{profile.contractingagency}}</p>
+  <small>
+    <em class="text-muted">
+      Mobile Number<br/>
+    </em>
+  </small>
+    <p class="lead" ng-bind="profile.mobilenumber | tel"></p>
 
     <form name="profileForm" ng-submit="checkIn(profileForm.$valid)" novalidate>
       <input name="lastname" type="text" ng-show="false" ng-model="profile.lastname" id="lastname"/>

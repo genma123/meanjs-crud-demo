@@ -52,7 +52,8 @@ exports.update = function (req, res) {
   profile.firstname = req.body.firstname;
   profile.contractingagency = req.body.contractingagency;
   profile.checkedin = req.body.checkedin;
-  console.log("name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency + ", checkedin: " + profile.checkedin);
+  profile.mobilenumber = req.body.mobilenumber;
+  console.log("name: " + profile.lastname + ", " + profile.firstname + ", agency: " + profile.contractingagency + ", checkedin: " + profile.checkedin + ", mobilenumber: " + profile.mobilenumber);
   profile.save(function (err) {
     if (err) {
       return res.status(400).send({
