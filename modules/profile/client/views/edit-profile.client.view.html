@@ -17,7 +17,7 @@
             <p class="help-block error-text" ng-message="required">Profile First Name is required.</p>
           </div>
           <label for="contractingagency">Contracting Agency</label>
-          <input name="contractingagency" type="text" checkedinid="contractingagency" class="form-control" placeholder="Contracting Agency" required/>
+          <input name="contractingagency" type="text" ng-model="profile.contractingagency" id="contractingagency" class="form-control" placeholder="Contracting Agency" required/>
           <div ng-messages="profileForm.contractingagency.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Profile Contracting Agency is required.</p>
           </div>

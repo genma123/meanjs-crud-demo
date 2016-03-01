@@ -27,8 +27,8 @@
       <input name="lastname" type="text" ng-show="false" ng-model="profile.lastname" id="lastname"/>
       <input name="firstname" type="text" ng-show="false" ng-model="profile.firstname" id="firstname"/>
       <input name="contractingagency" type="text" ng-show="false" ng-model="profile.contractingagency" id="contractingagency"/>
-        <div class="form-group" ng-init="label='Check In'">
-          <input type="submit" value="{{label}}" class="btn btn-default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="lead">{{profile.checkedin ? 'CHECKED IN' : 'CHECKED OUT'}}</span>
+        <div class="form-group">
+          <input type="submit" value="{{label=profile.checkedin ? 'Check Out' : 'Check In'}}" class="btn btn-default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="lead">{{profile.checkedin ? 'CHECKED IN' : 'CHECKED OUT'}}</span>
         </div>
 	</form>
 	

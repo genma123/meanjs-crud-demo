@@ -61,10 +61,10 @@ angular.module('profile').run(['Menus',
     });
 
     // Add the dropdown edit item
-    Menus.addSubMenuItem('topbar', 'profile', {
+    /* Menus.addSubMenuItem('topbar', 'profile', {
       title: 'Edit Profile',
-      state: 'profile.edit' /* ,
-      roles: ['*'] // ['user'] */
-    });
+      state: 'profile.edit' / * ,
+      roles: ['*'] // ['user'] * /
+    }); */
   }
 ]);
