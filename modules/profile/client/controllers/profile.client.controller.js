@@ -11,7 +11,7 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'profileForm');
-
+console.log("NOT VALID");
         return false;
       }
 
@@ -20,10 +20,10 @@ angular.module('profile').controller('ProfileController', ['$scope', '$statePara
         firstname: this.firstname,
         lastname: this.lastname,
 		contractingagency: this.contractingagency,
-		checkedin: this.checkedin,
+		checkedin: false,
 		mobilenumber: this.mobilenumber
       });
-
+console.log("in create, profile: " + profile);
       // Redirect after save
       profile.$save(function (response) {
         $location.path('profile/' + response._id);

@@ -22,6 +22,7 @@ exports.create = function (req, res) {
 	console.log("in create");
 
   var profile = new Profile(req.body);
+  console.log("new profile: " + profile);
   profile.save(function (err) {
     if (err) {
       return res.status(400).send({
